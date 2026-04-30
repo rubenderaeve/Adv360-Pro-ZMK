@@ -45,10 +45,10 @@ Left-hand homerow: **A=29, S=30, D=31, F=32**.
 Right-hand homerow: **J=41, K=42, L=43, ;=44**.
 
 **Thumb cluster gotcha** (verified against `key-positions.png`, mistakes happened twice in this repo):
-- 52 = small upper-LEFT thumb (Tab)
+- 52 = small upper-LEFT thumb (Home)
 - 53 = small upper-RIGHT thumb (PgUp)
 - 65 = **big leftmost** left-thumb (Space)  ← easy to confuse with 67
-- 66 = big-center left-thumb (Home)
+- 66 = big-center left-thumb (Tab)
 - 67 = small lower-LEFT thumb (End)
 - 68 = small lower-RIGHT thumb (PgDn)
 - 69 = big-center right-thumb (Enter)
