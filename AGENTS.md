@@ -59,12 +59,18 @@ Right-hand homerow: **J=41, K=42, L=43, ;=44**.
 | Idx | Name    | Activation |
 |-----|---------|------------|
 | 0   | Base    | default |
-| 1   | Fn/Num  | `&tog 1` (T1) or `&mo 1` |
-| 2   | FKeys   | `&mo 2` |
-| 3   | Mod     | `&mo 3` (Bluetooth, bootloader, RGB, backlight) |
-| 4   | Sym     | `&mo 4` |
-| 5   | Nav     | `&mo 5` |
-| 6   | Mouse   | `&mo 6` |
+| 1   | Fn/Num  | `&tog 1` at pos 6 (T1), `&mo 1` at pos 60 (M1 thumb), `&lt 1 RIGHT` at pos 64 |
+| 2   | FKeys   | `&mo 2` at pos 75 |
+| 3   | Mod     | `&mo 3` at pos 7 (Bluetooth, bootloader, RGB, backlight, battery) |
+| 4   | Sym     | `&lt 4 G` at pos 33 and `&lt 4 H` at pos 40, plus `&mo 4` at pos 34 |
+| 5   | Nav     | `&lt 5 SQT` at pos 45 (apostrophe key, tap = `'`) |
+| 6   | Mouse   | `&lt 6 DOWN` at pos 72 |
+
+**Reading Clique screenshots:** the badges `M1`, `M2` … `M6` next to a key
+mean *that key is the layer activator*. If the badge is on a letter (e.g.
+"G M4"), the binding must be `&lt LAYER LETTER`, not a bare `&mo` on the
+neighbouring inner-cluster key. Putting `&mo 5` on the apostrophe key
+*works* but eats the `'` character — use `&lt 5 SQT`.
 
 ## Homerow mods — battle-tested settings
 
@@ -123,6 +129,8 @@ Note: `Mod` here means the layer-3 momentary key (`&mo 3`), not a physical "Mod"
 4. **Layer references must point to existing layer indices.** `&mo 7` with only 7 layers (0–6) silently fails to compile.
 5. **`PRCNT` not `PERCENT`, `SEMI` not `SEMICOLON`, `BSLH` not `BACKSLASH`, `DQT` not `DQUOTE`, `FSLH` not `SLASH`** — see `dt-bindings/zmk/keys.h`.
 6. **Macro keys.** In Kinesis docs, "macro1/macro2/macro3/macro4" refer to the **physical** keys on the corners of each half (the inner-top keys), not to ZMK software macros. In this keymap, the bootloader is bound on the Mod layer at the `\` position (row 2 outer-right).
+7. **Behavior references need the `&kp` prefix.** A bare `&UP` (instead of `&kp UP`) in a binding list causes a devicetree parse error: *"expected number or parenthesized expression"*. The leading `&` is the *behavior* (`&kp`, `&trans`, `&mo`, `&lt`, `&hm`, …); the keycode is its parameter.
+8. **Reading shift-pair labels in Clique screenshots.** Each cell shows the shifted character above and the base character below. A cell that shows only one symbol is the base output. Two stacked horizontal marks in row 1 of the Sym layer that *look* like `=` are usually `_` over `-` (i.e. `&kp UNDER` or `&kp MINUS`); a real `=` is rendered as two lines very close together with the `+` cross above it (compare to pos 0 of the Base layer for the canonical look).
 
 ## Validation script (run before every commit)
 
