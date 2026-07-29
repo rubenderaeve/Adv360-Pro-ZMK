@@ -94,14 +94,14 @@
     };
 
     // Layer 5 – Navigation  (hold M5 — apostrophe key)
-    // WASD arrows: W=Up, A=Left, S=Down, D=Right
+    // ESDF arrows: E=Up, S=Left, D=Down, F=Right
     nav {
       display-name = "Nav";
       bindings = <
         &trans  &trans    &trans    &trans     &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans    &trans    &kp UP     &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans    &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans           &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans    &trans    &trans     &trans  &trans                          &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans    &kp C_VOL_DN    &kp C_MUTE     &kp C_VOL_UP  &trans                          &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans    &trans    &trans     &trans              &trans  &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
       >;
     };
